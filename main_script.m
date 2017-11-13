@@ -25,8 +25,6 @@ hanoi_towers = zeros(n, 3);
 hanoi_towers(1:end, 1:end) = intmax('uint8');
 % The left tower will be filled with 1 to number of disks
 hanoi_towers(:, 1) = 1:n;
-% Display the initial Hanoi Towers
-display_hanoi_towers(hanoi_towers);
 
 %% Movements
 % Loop the user interaction until the user wins
