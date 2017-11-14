@@ -13,7 +13,7 @@ while (~is_a_number || n < 3)
     disp('Please check it and try again');
     % Ask again for a number, and recheck the while condition
     number_of_disk_string = input('Enter the number of disks ( n >= 3 ): ', 's');
-    [n, successful] = str2num(number_of_disk_string);
+    [n, is_a_number] = str2num(number_of_disk_string);
 end
 
 %% Initial Hanoi Towers creation

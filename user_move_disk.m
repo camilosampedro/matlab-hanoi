@@ -25,7 +25,7 @@ while (~is_a_number || source_n < 1 || source_n > 3)
     % Repeat the input request
     source = input('Enter the source pin whose disk you want to move ( source = 1, 2, 3 ): ', 's');
     % And re-try the input conversion to number
-    [source_n, successful] = str2num(source);
+    [source_n, is_a_number] = str2num(source);
 end
 % Request the user to enter the target pin, where the disk will be placed
 target = input('Enter the target pin whose disk you want to move ( target = 1, 2, 3 ): ', 's');
@@ -44,7 +44,7 @@ while (~is_a_number || source_n < 1 || source_n > 3)
     % Repeat the input request
     target = input('Enter the target pin whose disk you want to move ( target = 1, 2, 3 ): ', 's');
     % And re-try the input conversion to number
-    [target_n, successful] = str2num(target);
+    [target_n, is_a_number] = str2num(target);
 end
 % After having valid source and target, proceed to move the disk (Function below)
 hanoi_towers = move_disk(hanoi_towers, source_n, target_n, n);
