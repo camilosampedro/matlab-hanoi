@@ -16,8 +16,8 @@ for r = 1:nr
         % intmax('uint8') is the value used to recognize the values that are not
         % disks, if the disk_size is intmax('uint8'), it means that it was not a
         % disk, so the program will print an empty bar: '|'
-        if(disk_size == intmax('uint8'))
-            disk = '|';
+        if(disk_size == 1000)
+            disk = '‖';
         else % If it was indeed a disk
             % Create a string with '=', repeated the disk_size times. e.g. if
             % disk size is 3, the disk will be '==='

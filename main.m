@@ -16,21 +16,11 @@ while (~is_a_number || n < 3)
     [n, is_a_number] = str2num(number_of_disk_string);
 end
 
-%% Initial Hanoi Towers creation
-% Create empty Hanoi Towers (Filled with zeros).
-hanoi_towers = zeros(n, 3);
-% Change every number for the maximum integer.
-% This is to check the minimum disk on the towers, without
-% conflicts with the zeros.
-hanoi_towers(1:end, 1:end) = intmax('uint8');
-% The left tower will be filled with 1 to number of disks
-hanoi_towers(:, 1) = 1:n;
+hanoi_pins = initialize_hanoi(n);
 
 %% Movements
 % Loop the user interaction until the user wins
-while (~have_won(hanoi_towers))
-    hanoi_towers = user_move_disk(hanoi_towers, n);
-end
+menu(hanoi_pins);
 
 %% User won
 % Winning message!
@@ -40,4 +30,4 @@ disp('=============================');
 disp('CONGRATULATIONS! You have won');
 disp('=============================');
 disp('=============================');
-display_hanoi_towers(hanoi_towers);
+display_hanoi_towers(hanoi_pins);
