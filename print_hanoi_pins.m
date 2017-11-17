@@ -6,7 +6,7 @@ function print_hanoi_pins( hanoi_pins )
 [nr, nc] = size(hanoi_pins);
 % Initialize the beauty hanoi towers with space strings of size nr, which is then
 % maximum disk size
-hanoi_pins_pretty = repmat({repmat(' ', 1, nr)}, nr, nc);
+hanoi_pins_pretty = repmat({repmat('', 1, nr)}, nr, nc);
 % Iterate through rows
 for r = 1:nr
     % and columns
@@ -33,6 +33,7 @@ header = {'(1)','(2)','(3)'};
 disp_hanoi = [hanoi_pins_pretty; header];
 % Simple message to tell the user that their hanoi towers will be printed
 disp('----Hanoi pins: -------------------------');
+disp('');
 % And then show the Beauty Hanoi Towers
 disp(disp_hanoi);
 disp('-----------------------------------------');

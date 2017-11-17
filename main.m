@@ -1,5 +1,6 @@
 %% Main script of Hanoi Towers
 % Show a input message for the number of disks to create the Hanoi Towers
+disp('===[ HANOI TOWERS ]===');
 number_of_disk_string = input('Initial tower height ( n >= 3 ): ', 's');
 [n, is_a_number] = str2num(number_of_disk_string);
 % Keep asking for the number of disks while the user input is invalid
