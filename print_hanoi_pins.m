@@ -35,4 +35,5 @@ disp_hanoi = [hanoi_pins_pretty; header];
 disp('----Hanoi pins: -------------------------');
 % And then show the Beauty Hanoi Towers
 disp(disp_hanoi);
+disp('-----------------------------------------');
 end
