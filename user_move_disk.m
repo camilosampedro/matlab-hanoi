@@ -2,7 +2,7 @@ function [ hanoi_towers ] = user_move_disk( hanoi_towers )
 %USER_MOVE_DISK User interaction to move a disk from one tower to another tower
 %   This will request input from the user to get the source and target towers
 % First of all, print the actual hanoi towers
-display_hanoi_towers(hanoi_towers);
+print_hanoi_towers(hanoi_towers);
 
 % Simple message
 disp('');

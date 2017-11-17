@@ -1,4 +1,4 @@
-function display_hanoi_towers( hanoi_towers )
+function print_hanoi_towers( hanoi_towers )
 %DISPLAY_HANOI_TOWERS Beautify and print the hanoi towers
 %   Convert the numbers inside the hanoi towers into disks of that size,
 %   then prints it to the user
@@ -21,7 +21,7 @@ for r = 1:nr
         else % If it was indeed a disk
             % Create a string with '=', repeated the disk_size times. e.g. if
             % disk size is 3, the disk will be '==='
-            disk = repmat('=', 1, disk_size);
+            disk = repmat('◼', 1, disk_size);
         end
         % Asign this beauty disk to the beauty disks matrix
         beauty_disks(r,c) = {disk};

@@ -22,12 +22,9 @@ hanoi_pins = initialize_hanoi(n);
 % Loop the user interaction until the user wins
 menu(hanoi_pins);
 
-%% User won
-% Winning message!
-disp('');
-disp('=============================');
-disp('=============================');
-disp('CONGRATULATIONS! You have won');
-disp('=============================');
-disp('=============================');
-display_hanoi_towers(hanoi_pins);
+%% Alert the user that they won!
+disp(' __ ___ _ _  __ _ _ _ __ _| |_ _  _| |__ _| |_(_)___ _ _  ___');
+disp('/ _/ _ | '' \/ _` | ''_/ _` |  _| || | / _` |  _| / _ | '' \(_-<');
+disp('\__\___|_||_\__, |_| \__,_|\__|\_,_|_\__,_|\__|_\___|_||_/__/');
+disp('            |___/                                            ');
+print_hanoi_towers(hanoi_pins);
