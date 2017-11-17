@@ -3,14 +3,14 @@ function display_hanoi_towers( hanoi_towers )
 %   Convert the numbers inside the hanoi towers into disks of that size,
 %   then prints it to the user
 % Number of rows and columns, to iterate inside the hanoi towers
-[nr, nc] = size(hanoi_towers);
+[number_of_rows, number_of_columns] = size(hanoi_towers);
 % Initialize the beauty hanoi towers with space strings of size nr, which is then
 % maximum disk size
-beauty_disks = repmat({repmat(' ', 1, nr)}, nr, nc);
+beauty_disks = repmat({repmat(' ', 1, number_of_rows)}, number_of_rows, number_of_columns);
 % Iterate through rows
-for r = 1:nr
+for r = 1:number_of_rows
     % and columns
-    for c = 1:nc
+    for c = 1:number_of_columns
         % Extract the original disk size, inside the hanoi_towers
         disk_size = hanoi_towers(r,c);
         % intmax('uint8') is the value used to recognize the values that are not
