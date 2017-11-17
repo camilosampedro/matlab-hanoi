@@ -1,4 +1,4 @@
-function [ response ] = have_won( hanoi_towers )
+function [ response ] = is_a_winning_config( hanoi_towers )
 %HAVE_WON Check if the hanoi_towers have a winning composition
 %   Checks if the right tower is completely filled with disks
 % Number of disks in the Hanoi Towers (Rows)

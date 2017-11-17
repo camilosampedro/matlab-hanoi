@@ -31,7 +31,7 @@ hanoi_towers(:, 1) = 1:number_of_disks;
 %% Movements
 % Loop the user interaction until the user wins
 number_of_moves = 0;
-while (~have_won(hanoi_towers))
+while (~is_a_winning_config(hanoi_towers))
     hanoi_towers = user_move_disk(hanoi_towers, number_of_disks);
     number_of_moves = number_of_moves + 1;
 end
