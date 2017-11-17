@@ -1,18 +1,19 @@
 function [ response ] = have_won( hanoi_pins )
-%HAVE_WON Check if the hanoi_towers have a winning composition
-%   Checks if the right tower is completely filled with disks
-% Number of disks in the Hanoi Towers (Rows)
+%HAVE_WON Check if all the disks are in the left pin
+% First get the height of the towers
 [nr, ~] = size(hanoi_pins);
-% Iterate through the disks on the last pin
+% Go disk per disk on the right tower
 for r = 1:nr
-    % If the last tower contains an space that is not filled with a disk (a number
-    % different to intmax('uint8')), the user has not won.
+    % 1000 is the number to recognize the positions that are not disks
+    % if any of the positions on the right pin has a 1000, then the user
+    % has not won
     if(hanoi_pins(r,3) == 1000)
         response = false;
-        % Break the loop here, because we already know that the user has not won.
+        % If this condition is gotten once, break the loop, it is not
+        % neccesary to continue it
         return;
     end
 end
-% If all of the spaces on the right tower were disks, the user has won
+% If no '1000' were found on the right pin, then the user has won
 response = true;
 end
