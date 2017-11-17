@@ -32,7 +32,7 @@ header = {'(1)','(2)','(3)'};
 % Concatenate the beauty disks with their headers below
 disp_hanoi = [hanoi_pins_pretty; header];
 % Simple message to tell the user that their hanoi towers will be printed
-disp('These are your hanoi towers: ');
+disp('----Hanoi pins: -------------------------');
 % And then show the Beauty Hanoi Towers
 disp(disp_hanoi);
 end
