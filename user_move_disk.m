@@ -2,47 +2,47 @@ function [ hanoi_towers ] = user_move_disk( hanoi_towers )
 %USER_MOVE_DISK User interaction to move a disk from one tower to another tower
 %   This will request input from the user to get the source and target towers
 % First of all, print the actual hanoi towers
-print_hanoi_towers(hanoi_towers);
+print_hanoi_pins(hanoi_towers);
 
 % Simple message
 disp('');
-disp('===========');
-disp('Move a disk');
-disp('===========');
+disp('');
+disp('Next move');
+disp('◼◼◼◼◼◼◼◼◼');
 % Request the user to enter the source pin, from which the disk will be removed
-source = input('Enter the source pin whose disk you want to move ( source = 1, 2, 3 ): ', 's');
+source = input('Select a source pin ( (1), (2) or (3) ): ', 's');
 % Try to read the number inside the input
 [source_n, is_a_number] = str2num(source);
 % Repeat the same input, until the user enters a valid number (1, 2 or 3)
 while (~is_a_number || source_n < 1 || source_n > 3)
     % If the invalidity is because the input was not a number
     if(~is_a_number)
-        disp('Warning: A non-numeric source pin as input');
+        disp('Error: Your input was not a number');
     else % Or it was because it was not on the valid range (1, 2 or 3)
-        disp('Warning: Input must be between 1 and 3');
+        disp('Error: The number must be 1, 2 or 3');
     end
-    disp('Please check it and try again');
+    disp('Try again');
     % Repeat the input request
-    source = input('Enter the source pin whose disk you want to move ( source = 1, 2, 3 ): ', 's');
+    source = input('Select a source pin ( (1), (2) or (3) ): ', 's');
     % And re-try the input conversion to number
     [source_n, is_a_number] = str2num(source);
 end
 % Request the user to enter the target pin, where the disk will be placed
-target = input('Enter the target pin whose disk you want to move ( target = 1, 2, 3 ): ', 's');
+target = input('Select a target pin ( (1), (2) or (3) ): ', 's');
 % Try to read the number inside the input
 [target_n, is_a_number] = str2num(target);
 % Repeat the same input, until the user enters a valid number (1, 2 or 3)
 while (~is_a_number || source_n < 1 || source_n > 3)
     % If the invalidity is because the input was not a number
     if (~is_a_number)
-        disp('Warning: A non-numeric target pin as input');
+        disp('Error: Your input was not a number');
     else
         % Or it was because it was not on the valid range (1, 2 or 3)
-        disp('Warning: Input must be between 1 and 3');
+        disp('Error: The number must be 1, 2 or 3');
     end
-    disp('Please check it and try again');
+    disp('Try again');
     % Repeat the input request
-    target = input('Enter the target pin whose disk you want to move ( target = 1, 2, 3 ): ', 's');
+    target = input('Select a target pin ( (1), (2) or (3) ): ', 's');
     % And re-try the input conversion to number
     [target_n, is_a_number] = str2num(target);
 end
