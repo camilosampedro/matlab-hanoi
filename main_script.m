@@ -1,7 +1,7 @@
 %% Main script of Hanoi Towers
 % Show a input message for the number of disks to create the Hanoi Towers
-disp('Welcome to Hanoi Towers game');
-disp('============================');
+disp('Welcome to the Hanoi Towers game');
+disp('================================');
 number_of_disk_string = input('Enter the number of disks ( n >= 3 ): ', 's');
 [number_of_disks, is_a_number] = str2num(number_of_disk_string);
 % Keep asking for the number of disks while the user input is invalid

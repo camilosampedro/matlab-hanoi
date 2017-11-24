@@ -10,42 +10,16 @@ disp('===========');
 disp('Move a disk');
 disp('===========');
 % Request the user to enter the source pin, from which the disk will be removed
-source = input('Enter the source pin whose disk you want to move ( source = 1, 2, 3 ): ', 's');
-% Try to read the number inside the input
-[source_n, is_a_number] = str2num(source);
+raw_string = input('Enter the source pin whose disk you want to move, then the target disk ( example = 12 or 23 or 31 ): ', 's');
 % Repeat the same input, until the user enters a valid number (1, 2 or 3)
-while (~is_a_number || source_n < 1 || source_n > 3)
-    % If the invalidity is because the input was not a number
-    if(~is_a_number)
-        disp('Warning: A non-numeric source pin as input');
-    else % Or it was because it was not on the valid range (1, 2 or 3)
-        disp('Warning: Input must be between 1 and 3');
-    end
-    disp('Please check it and try again');
-    % Repeat the input request
-    source = input('Enter the source pin whose disk you want to move ( source = 1, 2, 3 ): ', 's');
-    % And re-try the input conversion to number
-    [source_n, is_a_number] = str2num(source);
+while (~is_valid(raw_string))
+    % Display the message and check again
+    disp('Try again');
+    % Get the numbers again
+    raw_string = input('Enter the source pin whose disk you want to move, then the target disk ( example = 12 or 23 or 31 ): ', 's');
 end
-% Request the user to enter the target pin, where the disk will be placed
-target = input('Enter the target pin whose disk you want to move ( target = 1, 2, 3 ): ', 's');
-% Try to read the number inside the input
-[target_n, is_a_number] = str2num(target);
-% Repeat the same input, until the user enters a valid number (1, 2 or 3)
-while (~is_a_number || source_n < 1 || source_n > 3)
-    % If the invalidity is because the input was not a number
-    if (~is_a_number)
-        disp('Warning: A non-numeric target pin as input');
-    else
-        % Or it was because it was not on the valid range (1, 2 or 3)
-        disp('Warning: Input must be between 1 and 3');
-    end
-    disp('Please check it and try again');
-    % Repeat the input request
-    target = input('Enter the target pin whose disk you want to move ( target = 1, 2, 3 ): ', 's');
-    % And re-try the input conversion to number
-    [target_n, is_a_number] = str2num(target);
-end
+source_n = str2num(raw_string(1));
+target_n = str2num(raw_string(2));
 % After having valid source and target, proceed to move the disk (Function below)
 hanoi_towers = move_disk(hanoi_towers, source_n, target_n, n);
 end
@@ -90,4 +64,30 @@ if (min_disk == intmax('uint8'))
 end
 % The disk will be placed on top of the smallest disk index
 pin(disk_index - 1) = disk;
+end
+
+function [response] = is_valid(raw_string)
+%IS_VALID checks if user input is valid and prints why it's not
+if(length(raw_string) ~= 2)
+    disp('You need to enter two characters, like 12 or 23');
+    response = false;
+    return;
+end
+[source_n, is_a_number] = str2num(raw_string(1));
+if(~is_a_number)
+    disp(['Source: ', source_n, ' is not a number']);
+    response = false;
+    return;
+end
+[target_n, is_a_number] = str2num(raw_string(2));
+if(~is_a_number)
+    disp(['Target: ', target_n, ' is not a number']);
+    return;
+end
+if(source_n < 1 || source_n > 3 || target_n < 1 || target_n > 3)
+    disp('Numbers must be between 1 and 3, other values are not pins inside the game');
+    response = false;
+    return;
+end
+response = true;
 end

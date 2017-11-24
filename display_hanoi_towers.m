@@ -28,7 +28,8 @@ for r = 1:number_of_rows
     end
 end
 % The headers are labels that go below each tower
-header = {'Pin_1','Pin_2','Pin_3'};
+
+header = {'Pin 1','Pin 2','Pin 3'};
 % Concatenate the beauty disks with their headers below
 disp_hanoi = [beauty_disks; header];
 % Simple message to tell the user that their hanoi towers will be printed
