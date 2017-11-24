@@ -30,7 +30,7 @@ end
 % The headers are labels that go below each tower
 header = {'(1)','(2)','(3)'};
 % Concatenate the beauty disks with their headers below
-disp_hanoi = [hanoi_pins_pretty; header];
+disp_hanoi = [hanoi_pins_pretty; lines; header];
 % Simple message to tell the user that their hanoi towers will be printed
 disp('----Hanoi pins: -------------------------');
 disp('');
