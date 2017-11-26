@@ -1,40 +1,44 @@
 function print_hanoi_pins( hanoi_pins )
 %DISPLAY_HANOI_TOWERS Beautify and print the hanoi towers
 %   Convert the numbers inside the hanoi towers into disks of that size,
-%   then prints it to the user
+%   then prints it to the user, disks will be printed in a matrix on a
+%   window,
 % Number of rows and columns, to iterate inside the hanoi towers
 [nr, nc] = size(hanoi_pins);
-% Initialize the beauty hanoi towers with space strings of size nr, which is then
-% maximum disk size
-hanoi_pins_pretty = repmat({repmat('', 1, nr)}, nr, nc);
+% The maximum size that a disk can have (in squares)
+max_disk_size = nr * 2 - 1;
+% The center of the disk (To print centered disks)
+center_of_the_disk = ceil(max_disk_size / 2);
+% Number of required "squares" to print the Hanoi Towers
+number_of_horizontal_squares = (nr * 2 - 1) * 3;
+% Initialize the beauty hanoi towers with the number_of_horizontal_squares
+% columns, it will have enough space to fill the biggest disks
+hanoi_pins_pretty = zeros(nr, number_of_horizontal_squares);
 % Iterate through rows
 for r = 1:nr
     % and columns
     for c = 1:nc
         % Extract the original disk size, inside the hanoi_towers
         disk_size = hanoi_pins(r,c);
-        % intmax('uint8') is the value used to recognize the values that are not
-        % disks, if the disk_size is intmax('uint8'), it means that it was not a
-        % disk, so the program will print an empty bar: '|'
+        % Change the center of the disk, based on which tower are we in
+        fixed_center_of_the_disk = center_of_the_disk + (c - 1) * max_disk_size;
+        % 1000 is the value used to recognize the values that are not
+        % disks, if the disk_size is 1000, it means that it was not a
+        % disk, so the program will print an empty bar (A little brighter 
+        % blue than the background)
         if(disk_size == 1000)
-            disk = '‖';
+            hanoi_pins_pretty(r, fixed_center_of_the_disk) = 2;
         else % If it was indeed a disk
-            % Create a string with '=', repeated the disk_size times. e.g. if
-            % disk size is 3, the disk will be '==='
-            disk = repmat('◼', 1, disk_size);
+            % Calculate the beginning and the end of the disk, based on the
+            % disk size
+            beginning_of_disk = fixed_center_of_the_disk - (disk_size - 1);
+            end_of_disk = fixed_center_of_the_disk + (disk_size - 1);
+            % Fill the disk with yellow
+            hanoi_pins_pretty(r, beginning_of_disk:end_of_disk) = 50;
         end
-        % Asign this beauty disk to the beauty disks matrix
-        hanoi_pins_pretty(r,c) = {disk};
     end
 end
-% The headers are labels that go below each tower
-header = {'(1)','(2)','(3)'};
-% Concatenate the beauty disks with their headers below
-disp_hanoi = [hanoi_pins_pretty; lines; header];
-% Simple message to tell the user that their hanoi towers will be printed
-disp('----Hanoi pins: -------------------------');
-disp('');
 % And then show the Beauty Hanoi Towers
-disp(disp_hanoi);
+image(hanoi_pins_pretty, 'CDataMapping', 'scaled');
 disp('-----------------------------------------');
 end

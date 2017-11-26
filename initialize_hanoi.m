@@ -8,5 +8,7 @@ hanoi_pins = zeros(number_of_disks, 3);
 hanoi_pins(1:end, 1:end) = 1000;
 % The left tower will be filled with 1 to number of disks
 hanoi_pins(:, 1) = 1:number_of_disks;
+print_hanoi_pins(hanoi_pins);
+waitfor(msgbox('Please check that you have the Hanoi Windows opened to see your moves'));
 end
 
