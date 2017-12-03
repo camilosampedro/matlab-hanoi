@@ -14,6 +14,7 @@ for r = 1:nr
         return;
     end
 end
+
 % If no '1000' were found on the right pin, then the user has won
 response = true;
 end

@@ -10,7 +10,7 @@ max_disk_size = nr * 2 - 1;
 % The center of the disk (To print centered disks)
 center_of_the_disk = ceil(max_disk_size / 2);
 % Number of required "squares" to print the Hanoi Towers
-number_of_horizontal_squares = (nr * 2 - 1) * 3;
+number_of_horizontal_squares = max_disk_size * 3;
 % Initialize the beauty hanoi towers with the number_of_horizontal_squares
 % columns, it will have enough space to fill the biggest disks
 hanoi_pins_pretty = zeros(nr, number_of_horizontal_squares);
@@ -38,6 +38,7 @@ for r = 1:nr
         end
     end
 end
+
 % And then show the Beauty Hanoi Towers
 image(hanoi_pins_pretty, 'CDataMapping', 'scaled');
 disp('-----------------------------------------');

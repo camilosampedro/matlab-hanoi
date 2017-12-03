@@ -1,6 +1,4 @@
 %% Hanoi game
-% Title
-disp('===[ HANOI TOWERS ]===');
 % Get the tower height, a number greater than 3
 number_of_disk_string = inputdlg('Enter the number of disks to play with: ', 'Number of disks');
 % Check if it is a number
@@ -15,7 +13,6 @@ while (~is_a_number || n < 3)
         % It was lower than 3
         waitfor(msgbox('Error: You need at least 3 disks to play Hanoi Towers'));
     end
-    disp('Try again');
     % Prompt for it again and repeat the loop
     number_of_disk_string = inputdlg('Enter the number of disks to play with: ', 'Number of disks');
     [n, is_a_number] = str2num(cell2mat(number_of_disk_string));
@@ -26,7 +23,7 @@ hanoi_pins = initialize_hanoi(n);
 
 %% Menu
 % Repeated while user has not won
-hanoi_pins = menu(hanoi_pins);
+hanoi_pins = menu(hanoi_pins, n);
 
 %% Alert the user that they won!
 msgbox('You have won!');
