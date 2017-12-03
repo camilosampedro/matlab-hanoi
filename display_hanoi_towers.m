@@ -27,6 +27,7 @@ for r = 1:number_of_rows
         beauty_disks(r,c) = {disk};
     end
 end
+
 % The headers are labels that go below each tower
 header = {'Pin_1','Pin_2','Pin_3'};
 % Concatenate the beauty disks with their headers below
