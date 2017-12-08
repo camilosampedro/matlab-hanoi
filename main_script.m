@@ -46,3 +46,9 @@ disp('=============================');
 disp('=============================');
 disp(['You won in ', num2str(number_of_moves), ' moves.']);
 display_hanoi_towers(hanoi_towers);
+
+%% Ask the user if they want to play again
+answer = input('Do you want to play again? (y/N)', 's');
+if(answer == 'y')
+    main_script
+end

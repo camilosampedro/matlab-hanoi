@@ -67,9 +67,13 @@ else
     [ dest_disk, ~ ] = min(hanoi_towers(:, target_pin));
     % If the smaller disk on destination is smaller than the disk that will be moved there,
     % then it is not a valid move, warns the user and does not move the disk
-    if(dest_disk < source_disk)
+    if(dest_disk < source_disk || source_disk == intmax('uint8'))
         disp('Warning: Invalid move');
-        disp('Source disk is bigger than the top disk on target pin, please choose different ones');
+        if(dest_disk < source_disk)
+            disp('Source disk is bigger than the top disk on target pin, please choose different ones');
+        else
+            disp('Source pin is empty');
+        end
     else
         % If it is posible to move it,
         % Remove the disk from the source pin (intmax('uint8' is the "non-disk" value))
